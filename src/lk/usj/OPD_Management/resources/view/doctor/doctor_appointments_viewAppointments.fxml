@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="760.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.usj.OPD_Management.java.controller.doctor.appointment.DoctorAppointmentViewController">
+   <children>
+      <HBox>
+         <children>
+            <VBox>
+               <children>
+                  <Text fill="#282b2f" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments">
+                     <font>
+                        <Font name="Gotham Bold" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="15.0" right="15.0" top="15.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefWidth="200.0" spacing="20.0" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox prefHeight="200.0">
+               <padding>
+                  <Insets left="15.0" right="15.0" top="15.0" />
+               </padding>
+               <children>
+                  <Text fill="#282b2f" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Name">
+                     <font>
+                        <Font name="Gotham-Book" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Label fx:id="patientNameLabel" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #F2F0FB; -fx-background-radius: 5px;" text="Name" textFill="#282b2f">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="Gotham-Book" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Text fill="#282b2f" layoutX="25.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Username">
+                     <font>
+                        <Font name="Gotham-Book" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Label fx:id="patientUsernameLabel" layoutX="25.0" layoutY="120.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #F2F0FB; -fx-background-radius: 5px;" text="P0001" textFill="#282b2f">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="Gotham-Book" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Text fill="#282b2f" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone No">
+                     <font>
+                        <Font name="Gotham-Book" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Label fx:id="phoneNumberLabel" layoutX="25.0" layoutY="166.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #F2F0FB; -fx-background-radius: 5px;" text="012 345 6789" textFill="#282b2f">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="Gotham-Book" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="25.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+            <VBox prefWidth="250.0">
+               <padding>
+                  <Insets left="15.0" right="15.0" top="15.0" />
+               </padding>
+               <children>
+                  <Text fill="#282b2f" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+                     <font>
+                        <Font name="Gotham-Book" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Text>
+                  <HBox spacing="5.0">
+                     <children>
+                        <Label fx:id="dateLabel" layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #F2F0FB; -fx-background-radius: 5px;" text="Date" textFill="#282b2f">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                           <font>
+                              <Font name="Gotham-Book" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="25.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Text fill="#282b2f" layoutX="25.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time">
+                     <font>
+                        <Font name="Gotham-Book" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Label fx:id="timeLabel" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #F2F0FB; -fx-background-radius: 5px;" text="Time" textFill="#282b2f">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="Gotham-Book" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox layoutX="25.0" layoutY="45.0" spacing="10.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <Text fill="#282b2f" layoutX="25.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
+                     <font>
+                        <Font name="Gotham-Book" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Label fx:id="statusLabel" layoutX="25.0" layoutY="173.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #F2F0FB; -fx-background-radius: 5px;" text="Status" textFill="#282b2f">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="Gotham-Book" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+               <children>
+                  <Text fill="#282b2f" layoutX="25.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Symptoms">
+                     <font>
+                        <Font name="Gotham-Book" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Text>
+                  <JFXTextField fx:id="symptomsTextField" alignment="TOP_LEFT" editable="false" focusColor="#b8b6c7" maxWidth="1.7976931348623157E308" prefHeight="457.0" prefWidth="230.0" promptText="Write here..." style="-fx-background-color: #F2F0FB; -fx-background-radius: 5;" unFocusColor="#ffffff00">
+                     <font>
+                        <Font name="Gotham-Book" size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="BOTTOM_RIGHT" spacing="20.0">
+         <children>
+            <JFXButton fx:id="okBtn" alignment="CENTER" layoutX="173.0" layoutY="10.0" onAction="#okBtn_OnAction" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #2484FF;" text="OK" textFill="WHITE">
+               <font>
+                  <Font name="Gotham-Book" size="12.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="12.0" right="12.0" top="10.0" />
+               </padding>
+            </JFXButton>
+         </children>
+         <VBox.margin>
+            <Insets bottom="15.0" left="15.0" right="15.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

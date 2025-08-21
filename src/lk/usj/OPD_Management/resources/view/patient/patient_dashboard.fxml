@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="root" maxHeight="567.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.usj.OPD_Management.java.controller.patient.dashboard.PatientDashboardController">
+   <children>
+      <VBox prefWidth="760.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5;">
+         <children>
+            <Text fill="#282b2f" strokeType="OUTSIDE" strokeWidth="0.0" text="Today's Appointments">
+               <font>
+                  <Font name="Gotham Bold" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </Text>
+            <TableView fx:id="appointmentTable" focusTraversable="false" onMouseClicked="#appointmentTable_MouseEvent" prefHeight="218.0" styleClass="scroll-bar" stylesheets="@../../css/styles.css" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TableColumn minWidth="8.0" prefWidth="112.79993361234665" text="Appointment ID" />
+                  <TableColumn prefWidth="193.60000610351562" text="Doctor" />
+                  <TableColumn prefWidth="212.79998779296875" text="Date" />
+                  <TableColumn prefWidth="109.5999755859375" text="Time" />
+                  <TableColumn prefWidth="96.00006103515625" text="Status" />
+               </columns>
+            </TableView>
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+         <VBox.margin>
+            <Insets bottom="15.0" />
+         </VBox.margin>
+      </VBox>
+      <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="273.0" prefWidth="760.0">
+         <children>
+            <VBox prefHeight="273.0" prefWidth="561.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5;">
+               <children>
+                  <VBox prefWidth="500.0">
+                     <children>
+                        <Text fill="#282b2f" strokeType="OUTSIDE" strokeWidth="0.0" text="Complaints" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="Gotham Bold" size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" top="15.0" />
+                           </VBox.margin>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <VBox maxHeight="1.7976931348623157E308" prefHeight="473.0" prefWidth="465.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <TableView fx:id="complaintTable" focusTraversable="false" onMouseClicked="#complaintTable_MouseEvent" prefHeight="206.0" prefWidth="479.0" VBox.vgrow="ALWAYS">
+                           <columns>
+                              <TableColumn prefWidth="87.19998854398727" text="Complaint ID" />
+                              <TableColumn prefWidth="193.5999755859375" text="Complaint Type" />
+                              <TableColumn prefWidth="164.800048828125" text="Date" />
+                              <TableColumn prefWidth="78.0" text="Status" />
+                           </columns>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </TableView>
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox spacing="15.0" style="-fx-background-radius: 5;" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+               <children>
+                  <JFXButton fx:id="addNewAppointmentBtn" alignment="CENTER" onAction="#addNewAppointmentBtn_OnAction" prefHeight="130.0" prefWidth="184.0" style="-fx-background-color: #1CC270; -fx-background-radius: 5px;" text="Add New &#10;Appointment" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Gotham-Book" size="19.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="addNewComplaint" alignment="CENTER" onAction="#addNewComplaint_OnAction" prefHeight="130.0" prefWidth="184.0" style="-fx-background-color: #FF4242; -fx-background-radius: 5px;" text="Add New&#10;Complaint" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Gotham-Book" size="19.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

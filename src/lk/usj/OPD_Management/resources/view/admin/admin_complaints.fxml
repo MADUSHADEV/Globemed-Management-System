@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="760.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5px;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.usj.OPD_Management.java.controller.admin.complaint.AdminComplaintController">
+   <children>
+      <Text fill="#282b2f" strokeType="OUTSIDE" strokeWidth="0.0" text="Complaints">
+         <font>
+            <Font name="Gotham Bold" size="16.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </VBox.margin>
+      </Text>
+      <TableView fx:id="complaintTable" onMouseClicked="#complaintTable_MouseEvent" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" VBox.vgrow="ALWAYS">
+        <columns>
+          <TableColumn prefWidth="81.399993121624" text="Complaint ID" />
+          <TableColumn prefWidth="139.40000915527344" text="Coplaint type" />
+            <TableColumn prefWidth="99.19998168945312" text="Complaint by" />
+            <TableColumn prefWidth="159.5999755859375" text="Date" />
+            <TableColumn prefWidth="153.99996948242188" text="Action Taken" />
+            <TableColumn prefWidth="97.20001220703125" text="Status" />
+        </columns>
+         <VBox.margin>
+            <Insets bottom="15.0" left="15.0" right="15.0" />
+         </VBox.margin>
+      </TableView>
+   </children>
+</VBox>
