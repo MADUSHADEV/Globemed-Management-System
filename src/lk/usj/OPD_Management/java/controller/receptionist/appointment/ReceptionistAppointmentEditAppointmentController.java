@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -27,6 +28,8 @@ import lk.usj.OPD_Management.java.common.Common;
 import lk.usj.OPD_Management.java.dto.AppointmentDTO;
 import lk.usj.OPD_Management.java.dto.DoctorDTO;
 import lk.usj.OPD_Management.java.dto.PatientDTO;
+import lk.usj.OPD_Management.java.mediator.AppointmentFormMediator;
+import lk.usj.OPD_Management.java.mediator.impl.AppointmentFormMediatorImpl;
 import lk.usj.OPD_Management.java.service.custom.AppointmentBO;
 import lk.usj.OPD_Management.java.service.custom.DoctorBO;
 import lk.usj.OPD_Management.java.service.custom.PatientBO;
@@ -35,9 +38,11 @@ import lk.usj.OPD_Management.java.service.custom.impl.DoctorBOImpl;
 import lk.usj.OPD_Management.java.service.custom.impl.PatientBOImpl;
 
 public class ReceptionistAppointmentEditAppointmentController implements Initializable {
-    private DoctorBO doctorBO=new DoctorBOImpl();
+    private DoctorBO doctorBO = new DoctorBOImpl();
     private PatientBO patientBO = new PatientBOImpl();
-    private AppointmentBO appointmentBO =new AppointmentBOImpl();
+    private AppointmentBO appointmentBO = new AppointmentBOImpl();
+    private AppointmentFormMediator mediator;
+
     String appointmentId;
     DoctorDTO doctorDTO;
     PatientDTO patientDTO;
@@ -83,7 +88,7 @@ public class ReceptionistAppointmentEditAppointmentController implements Initial
 
     @FXML
     void cancelBtn_OnAction(ActionEvent event) {
-        ((Node)(event.getSource())).getScene().getWindow().hide();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
     @FXML
@@ -92,10 +97,11 @@ public class ReceptionistAppointmentEditAppointmentController implements Initial
     }
 
     @FXML
-    void doctorTable_MouseEvent(MouseEvent event) throws Exception{
-        doctorDTO=(doctorTable.getSelectionModel().getSelectedItem());
-        if(doctorDTO == null){
-            Common.showWarning("Please select Doctor records");
+    void doctorTable_MouseEvent(MouseEvent event) throws Exception {
+        doctorDTO = (doctorTable.getSelectionModel().getSelectedItem());
+        if (doctorDTO == null) {
+            mediator.onDoctorSelected(doctorDTO);
+            //Common.showWarning("Please select Doctor records");
             return;
         }
         doctorNameLabel.setText(doctorDTO.getName());
@@ -120,34 +126,34 @@ public class ReceptionistAppointmentEditAppointmentController implements Initial
     @FXML
     void saveBtn_OnAction(ActionEvent event) {
         try {
-            patientDTO=patientBO.searchPatient(patientUsernameTextField.getText());
+            patientDTO = patientBO.searchPatient(patientUsernameTextField.getText());
 
-        }catch (Exception e){
+        } catch (Exception e) {
             Common.showError("Sorry! Can not found Patient Account");
             return;
         }
-        try{
-            String status ="Pending";
-            int appointmentNo =-1;
+        try {
+            String status = "Pending";
+            int appointmentNo = -1;
 
 
             LocalDate ld = dateDatePicker.getValue();
-            if (ld == null){
+            if (ld == null) {
                 Common.showError("Please Enter Appointment Date");
                 return;
             }
-            Calendar c =  Calendar.getInstance();
+            Calendar c = Calendar.getInstance();
             c.set(ld.getYear(), ld.getMonthValue() - 1, ld.getDayOfMonth());
             Date date = c.getTime();
 
             timeComboBox.getSelectionModel().getSelectedItem();
 
-            if (doctorNameLabel.getText().equals("")){
+            if (doctorNameLabel.getText().equals("")) {
                 Common.showWarning("Please select Doctor");
                 return;
             }
 
-            AppointmentDTO appointmentDTO= new AppointmentDTO(
+            AppointmentDTO appointmentDTO = new AppointmentDTO(
                     appointmentId,
                     patientDTO,
                     doctorDTO,
@@ -160,16 +166,15 @@ public class ReceptionistAppointmentEditAppointmentController implements Initial
 
             boolean b = appointmentBO.updateAppointment(appointmentDTO);
 
-            if (b){
+            if (b) {
                 Common.showMessage("Updated successfully!");
-            }
-            else
+            } else
                 Common.showError("Updated Fail!");
         } catch (Exception e1) {
             Common.showError("Updated Fail!");
             e1.printStackTrace();
         }
-        ((Node)(event.getSource())).getScene().getWindow().hide();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
 
 
     }
@@ -194,20 +199,111 @@ public class ReceptionistAppointmentEditAppointmentController implements Initial
 
     }
 
-    private void loadDoctorTable(String specialistArea) throws Exception {
-        doctorTable.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("name"));
-        doctorTable.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("gender"));
-        doctorTable.setItems(FXCollections.observableArrayList(doctorBO.getAllDoctorsUsingSpecialistArea(specialistArea)));
+    public void loadDoctorTable(String specialistArea) throws Exception {
+
+//         doctorTable.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("name"));
+//         doctorTable.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("gender"));
+//         doctorTable.setItems(FXCollections.observableArrayList(doctorBO.getAllDoctorsUsingSpecialistArea(specialistArea)));
+
+        try {
+            doctorTable.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("name"));
+            doctorTable.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("gender"));
+            doctorTable.setItems(FXCollections.observableArrayList(
+                    doctorBO.getAllDoctorsUsingSpecialistArea(specialistArea)));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
+    /**
+     * ---------------------------------------------
+     * Mediator Pattern Implementation
+     * ---------------------------------------------
+     */
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        mediator = new AppointmentFormMediatorImpl(this);
+        setupEventHandlers();
     }
 
-    public void transferMessage(AppointmentDTO appointmentDTO) throws Exception{
+    private void setupEventHandlers() {
+        // Patient username field listener
+        patientUsernameTextField.textProperty().addListener((obs, oldText, newText) -> {
+            if (!newText.isEmpty()) {
+                mediator.onPatientSearched(newText);
+            }
+        });
+
+        // Specialist area combo box
+        specialistAreaComboBox.setOnAction(e -> {
+            String selected = specialistAreaComboBox.getSelectionModel().getSelectedItem();
+            try {
+                mediator.onSpecialistAreaChanged(selected);
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        // Date picker
+        dateDatePicker.setOnAction(e -> {
+            LocalDate selected = dateDatePicker.getValue();
+            mediator.onDateChanged(selected);
+        });
+
+        // Time combo box
+        timeComboBox.setOnAction(e -> {
+            String selected = timeComboBox.getSelectionModel().getSelectedItem();
+            mediator.onTimeChanged(selected);
+        });
+    }
+
+    // Helper methods for mediator
+    public void updatePatientFields(PatientDTO patient) {
+        this.patientDTO = patient;
+        patientNameTextField.setText(patient.getName());
+        patientPhoneTextField.setText(patient.getPhoneNumber());
+    }
+
+    public void clearPatientFields() {
+        patientNameTextField.clear();
+        patientPhoneTextField.clear();
+        this.patientDTO = null;
+    }
+
+    public void clearDoctorSelection() {
+        doctorNameLabel.setText("");
+        this.doctorDTO = null;
+    }
+
+    public void updateDoctorLabel(String doctorName) {
+        doctorNameLabel.setText(doctorName);
+    }
+
+    public void setSaveButtonEnabled(boolean enabled) {
+        saveBtn.setDisable(!enabled);
+    }
+
+    public boolean hasPatientData() {
+        return patientDTO != null;
+    }
+
+    public boolean hasDoctorSelected() {
+        return doctorDTO != null;
+    }
+
+    public boolean hasValidDate() {
+        return dateDatePicker.getValue() != null;
+    }
+
+    public boolean hasTimeSelected() {
+        return timeComboBox.getSelectionModel().getSelectedItem() != null;
+    }
+
+    // -------------------------- Mediator Methods --------------------------//
+
+    public void transferMessage(AppointmentDTO appointmentDTO) throws Exception {
         specialistAreaComboBox.getItems().addAll(
                 "Choose",
                 "Psychiatrist",
@@ -239,6 +335,12 @@ public class ReceptionistAppointmentEditAppointmentController implements Initial
         doctorDTO = doctorBO.searchDoctor(appointmentDTO.getDoctorUsername());
 
         loadDoctorTable(appointmentDTO.getSpecialistArea());
+    }
+
+    public void clearDate() {
+    }
+
+    public void clearAllFields() {
     }
 }
 
