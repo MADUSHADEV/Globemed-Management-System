@@ -88,18 +88,18 @@ public class ReceptionistAppointmentApprovedTableController implements Initializ
 
     @FXML
     void exportPdfBtn_OnAction(ActionEvent event) throws Exception{
-        ArrayList<AppointmentDTO> appointments=appointmentBO.getApprovedAppointmentList();
+        ArrayList<AppointmentDTO> appointments=appointmentBO.getCompletedAppointmentList();
         try {
             Date today =new Date();
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             String strDate = formatter.format(today);
-            String fileName= "GeneratedReports\\ApprovedAppointment"+String.valueOf(today.getDate())+String.valueOf(today.getMinutes())+String.valueOf(today.getSeconds())+".pdf";
+            String fileName= "GeneratedReports\\CompletedAppointment"+String.valueOf(today.getDate())+String.valueOf(today.getMinutes())+String.valueOf(today.getSeconds())+".pdf";
 
             Document document=new Document();
             PdfWriter.getInstance(document, new FileOutputStream(fileName));
             document.open();
 
-            Paragraph paragraph=new Paragraph("Approved Appointments : "+strDate);
+            Paragraph paragraph=new Paragraph("Completed Appointments : "+strDate);
             document.add(paragraph);
 
             //document.add(new Paragraph(" "));
@@ -195,7 +195,7 @@ public class ReceptionistAppointmentApprovedTableController implements Initializ
         approvedTable.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("appointmentTime"));
         approvedTable.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("patientPhone"));
         approvedTable.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("appointmentNo"));
-        approvedTable.setItems(FXCollections.observableArrayList(appointmentBO.getApprovedAppointmentList()));
+        approvedTable.setItems(FXCollections.observableArrayList(appointmentBO.getCompletedAppointmentList()));
     }
 
     @Override

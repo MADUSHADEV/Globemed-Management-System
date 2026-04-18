@@ -373,7 +373,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
                 currentStatus=details[7];
 
 
-                if (doc.getUsername().equals(doctor) && currentStatus.equals("Approved")){
+                if (doc.getUsername().equals(doctor) && currentStatus.equals("Approve")){
                     count++;
                 }else {
                     continue;

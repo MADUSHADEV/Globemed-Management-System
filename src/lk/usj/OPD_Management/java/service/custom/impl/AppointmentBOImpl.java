@@ -137,6 +137,36 @@ public class AppointmentBOImpl implements AppointmentBO {
     }
 
     @Override
+    public ArrayList<AppointmentDTO> getCompletedAppointmentList() throws Exception {
+        String status ="Completed";
+        ArrayList<Appointment> pendingAppointments = appointmentDAO.getAllAppointmentUsingStatus(status);
+        ArrayList<AppointmentDTO> appointments = new ArrayList<>();
+        for (Appointment appointment : pendingAppointments) {
+            String patientUsername = appointment.getPatient() != null ? appointment.getPatient().getUsername() : "Deleted User";
+            String patientName = appointment.getPatient() != null ? appointment.getPatient().getName() : "Deleted User";
+            String patientPhone = appointment.getPatient() != null ? appointment.getPatient().getPhoneNumber() : "N/A";
+            String doctorUsername = appointment.getDoctor() != null ? appointment.getDoctor().getUsername() : "Deleted User";
+            String doctorName = appointment.getDoctor() != null ? appointment.getDoctor().getName() : "Deleted User";
+            String doctorSpecialistArea = appointment.getDoctor() != null ? appointment.getDoctor().getSpecialistArea() : "N/A";
+            
+            appointments.add(new AppointmentDTO(
+                    appointment.getAppointmentId(),
+                    appointment.getAppointmentNo(),
+                    appointment.getAppointmentDate(),
+                    appointment.getAppointmentTime(),
+                    appointment.getSymptoms(),
+                    appointment.getStatus(),
+                    patientUsername,
+                    patientName,
+                    patientPhone,
+                    doctorUsername,
+                    doctorName,
+                    doctorSpecialistArea));
+        }
+        return appointments;
+    }
+
+    @Override
     public boolean updateAppointment(AppointmentDTO appointmentDTO) throws Exception {
         Patient patient=new Patient(
                 appointmentDTO.getPatient().getUsername(),

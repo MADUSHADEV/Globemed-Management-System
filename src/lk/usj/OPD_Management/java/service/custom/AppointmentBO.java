@@ -20,6 +20,8 @@ public interface AppointmentBO extends SuperBO {
 
     ArrayList<AppointmentDTO> getApprovedAppointmentList()throws Exception;
 
+    ArrayList<AppointmentDTO> getCompletedAppointmentList()throws Exception;
+
     boolean updateAppointment(AppointmentDTO appointmentDTO)throws Exception;
 
     ArrayList<AppointmentDTO> getAppointmentList() throws Exception;
