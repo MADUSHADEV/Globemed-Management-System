@@ -61,7 +61,7 @@ public class ComplaintDAOImpl implements ComplaintDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 complaintId=details[0];
                 type=details[1];
                 complaintBy=details[2];
@@ -155,7 +155,7 @@ public class ComplaintDAOImpl implements ComplaintDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 complaintId=details[0];
                 type=details[1];
                 complaintBy=details[2];
@@ -205,7 +205,7 @@ public class ComplaintDAOImpl implements ComplaintDAO {
             if (last == null){
                 return 0;
             }else {
-                String[] details = last.split("#");
+                String[] details = last.split("#", -1);
                 complaintId=details[0];
                 return Integer.parseInt(complaintId.substring(1));
             }
@@ -234,7 +234,7 @@ public class ComplaintDAOImpl implements ComplaintDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 status=details[9];
 
                 if (status.equals("NEW")){

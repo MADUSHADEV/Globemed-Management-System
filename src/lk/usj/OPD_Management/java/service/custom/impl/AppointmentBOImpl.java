@@ -72,6 +72,13 @@ public class AppointmentBOImpl implements AppointmentBO {
         ArrayList<Appointment> pendingAppointments = appointmentDAO.getAllAppointmentUsingStatus(status);
         ArrayList<AppointmentDTO> appointments = new ArrayList<>();
         for (Appointment appointment : pendingAppointments) {
+            String patientUsername = appointment.getPatient() != null ? appointment.getPatient().getUsername() : "Deleted User";
+            String patientName = appointment.getPatient() != null ? appointment.getPatient().getName() : "Deleted User";
+            String patientPhone = appointment.getPatient() != null ? appointment.getPatient().getPhoneNumber() : "N/A";
+            String doctorUsername = appointment.getDoctor() != null ? appointment.getDoctor().getUsername() : "Deleted User";
+            String doctorName = appointment.getDoctor() != null ? appointment.getDoctor().getName() : "Deleted User";
+            String doctorSpecialistArea = appointment.getDoctor() != null ? appointment.getDoctor().getSpecialistArea() : "N/A";
+            
             appointments.add(new AppointmentDTO(
                     appointment.getAppointmentId(),
                     appointment.getAppointmentNo(),
@@ -79,12 +86,12 @@ public class AppointmentBOImpl implements AppointmentBO {
                     appointment.getAppointmentTime(),
                     appointment.getSymptoms(),
                     appointment.getStatus(),
-                    appointment.getPatient().getUsername(),
-                    appointment.getPatient().getName(),
-                    appointment.getPatient().getPhoneNumber(),
-                    appointment.getDoctor().getUsername(),
-                    appointment.getDoctor().getName(),
-                    appointment.getDoctor().getSpecialistArea()));
+                    patientUsername,
+                    patientName,
+                    patientPhone,
+                    doctorUsername,
+                    doctorName,
+                    doctorSpecialistArea));
         }
         return appointments;
     }
@@ -105,6 +112,13 @@ public class AppointmentBOImpl implements AppointmentBO {
         ArrayList<Appointment> pendingAppointments = appointmentDAO.getAllAppointmentUsingStatus(status);
         ArrayList<AppointmentDTO> appointments = new ArrayList<>();
         for (Appointment appointment : pendingAppointments) {
+            String patientUsername = appointment.getPatient() != null ? appointment.getPatient().getUsername() : "Deleted User";
+            String patientName = appointment.getPatient() != null ? appointment.getPatient().getName() : "Deleted User";
+            String patientPhone = appointment.getPatient() != null ? appointment.getPatient().getPhoneNumber() : "N/A";
+            String doctorUsername = appointment.getDoctor() != null ? appointment.getDoctor().getUsername() : "Deleted User";
+            String doctorName = appointment.getDoctor() != null ? appointment.getDoctor().getName() : "Deleted User";
+            String doctorSpecialistArea = appointment.getDoctor() != null ? appointment.getDoctor().getSpecialistArea() : "N/A";
+            
             appointments.add(new AppointmentDTO(
                     appointment.getAppointmentId(),
                     appointment.getAppointmentNo(),
@@ -112,12 +126,12 @@ public class AppointmentBOImpl implements AppointmentBO {
                     appointment.getAppointmentTime(),
                     appointment.getSymptoms(),
                     appointment.getStatus(),
-                    appointment.getPatient().getUsername(),
-                    appointment.getPatient().getName(),
-                    appointment.getPatient().getPhoneNumber(),
-                    appointment.getDoctor().getUsername(),
-                    appointment.getDoctor().getName(),
-                    appointment.getDoctor().getSpecialistArea()));
+                    patientUsername,
+                    patientName,
+                    patientPhone,
+                    doctorUsername,
+                    doctorName,
+                    doctorSpecialistArea));
         }
         return appointments;
     }
@@ -174,6 +188,13 @@ public class AppointmentBOImpl implements AppointmentBO {
         ArrayList<Appointment> pendingAppointments = appointmentDAO.getAll();
         ArrayList<AppointmentDTO> appointments = new ArrayList<>();
         for (Appointment appointment : pendingAppointments) {
+            String patientUsername = appointment.getPatient() != null ? appointment.getPatient().getUsername() : "Deleted User";
+            String patientName = appointment.getPatient() != null ? appointment.getPatient().getName() : "Deleted User";
+            String patientPhone = appointment.getPatient() != null ? appointment.getPatient().getPhoneNumber() : "N/A";
+            String doctorUsername = appointment.getDoctor() != null ? appointment.getDoctor().getUsername() : "Deleted User";
+            String doctorName = appointment.getDoctor() != null ? appointment.getDoctor().getName() : "Deleted User";
+            String doctorSpecialistArea = appointment.getDoctor() != null ? appointment.getDoctor().getSpecialistArea() : "N/A";
+            
             appointments.add(new AppointmentDTO(
                     appointment.getAppointmentId(),
                     appointment.getAppointmentNo(),
@@ -181,12 +202,12 @@ public class AppointmentBOImpl implements AppointmentBO {
                     appointment.getAppointmentTime(),
                     appointment.getSymptoms(),
                     appointment.getStatus(),
-                    appointment.getPatient().getUsername(),
-                    appointment.getPatient().getName(),
-                    appointment.getPatient().getPhoneNumber(),
-                    appointment.getDoctor().getUsername(),
-                    appointment.getDoctor().getName(),
-                    appointment.getDoctor().getSpecialistArea()));
+                    patientUsername,
+                    patientName,
+                    patientPhone,
+                    doctorUsername,
+                    doctorName,
+                    doctorSpecialistArea));
         }
         return appointments;
     }

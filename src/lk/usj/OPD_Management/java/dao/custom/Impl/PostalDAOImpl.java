@@ -61,7 +61,7 @@ public class PostalDAOImpl implements PostalDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 referenceNo=details[0];
                 fromAddress=details[1];
                 toAddress=details[2];
@@ -147,7 +147,7 @@ public class PostalDAOImpl implements PostalDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 referenceNo=details[0];
                 fromAddress=details[1];
                 toAddress=details[2];
@@ -229,7 +229,7 @@ public class PostalDAOImpl implements PostalDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 referenceNo=details[0];
                 fromAddress=details[1];
                 toAddress=details[2];
@@ -274,7 +274,7 @@ public class PostalDAOImpl implements PostalDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 referenceNo=details[0];
                 fromAddress=details[1];
                 toAddress=details[2];

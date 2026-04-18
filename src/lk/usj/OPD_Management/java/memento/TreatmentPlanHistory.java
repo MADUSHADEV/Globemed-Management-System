@@ -12,7 +12,7 @@ public class TreatmentPlanHistory {
 
     public void saveState(TreatmentPlanMemento memento) {
         history.add(memento);
-        System.out.println("💾 MEMENTO: Treatment state saved at " + memento.getTimestamp());
+        System.out.println("MEMENTO: Treatment state saved at " + memento.getTimestamp());
     }
 
     public TreatmentPlanMemento getState(int index) {
@@ -34,7 +34,7 @@ public class TreatmentPlanHistory {
     }
 
     public void showHistory() {
-        System.out.println("📚 TREATMENT HISTORY:");
+        System.out.println("TREATMENT HISTORY:");
         for (int i = 0; i < history.size(); i++) {
             TreatmentPlanMemento memento = history.get(i);
             System.out.println("  [" + i + "] " + memento.getTimestamp() +

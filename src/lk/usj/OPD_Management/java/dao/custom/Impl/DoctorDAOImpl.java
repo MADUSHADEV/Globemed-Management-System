@@ -67,7 +67,7 @@ public class DoctorDAOImpl implements DoctorDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 username=details[0];
                 name=details[1];
                 gender=details[2];
@@ -173,7 +173,7 @@ public class DoctorDAOImpl implements DoctorDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 username=details[0];
                 name=details[1];
                 gender=details[2];
@@ -264,7 +264,7 @@ public class DoctorDAOImpl implements DoctorDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 username=details[0];
                 name=details[1];
                 gender=details[2];
@@ -328,7 +328,7 @@ public class DoctorDAOImpl implements DoctorDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 username=details[0];
                 name=details[1];
                 gender=details[2];
@@ -385,7 +385,7 @@ public class DoctorDAOImpl implements DoctorDAO {
             if (last == null){
                 return 0;
             }else {
-                String[] details = last.split("#");
+                String[] details = last.split("#", -1);
                 staffId=details[9];
                 return Integer.parseInt(staffId.substring(1));
             }
@@ -424,7 +424,7 @@ public class DoctorDAOImpl implements DoctorDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 username=details[0];
                 name=details[1];
                 gender=details[2];

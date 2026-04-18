@@ -73,7 +73,7 @@ public class LoginDAOImpl implements LoginDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 username=details[0];
                 name=details[1];
                 date=details[2];

@@ -58,7 +58,7 @@ public class VisitorDAOImpl implements VisitorDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 visitorId=details[0];
                 visitorName=details[1];
                 purpose=details[2];
@@ -146,7 +146,7 @@ public class VisitorDAOImpl implements VisitorDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 visitorId=details[0];
                 visitorName=details[1];
                 purpose=details[2];
@@ -231,7 +231,7 @@ public class VisitorDAOImpl implements VisitorDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 visitorId=details[0];
                 visitorName=details[1];
                 purpose=details[2];
@@ -283,7 +283,7 @@ public class VisitorDAOImpl implements VisitorDAO {
             if (last == null){
                 return 0;
             }else {
-                String[] details = last.split("#");
+                String[] details = last.split("#", -1);
                 visitorId=details[0];
                 return Integer.parseInt(visitorId.substring(1));
             }

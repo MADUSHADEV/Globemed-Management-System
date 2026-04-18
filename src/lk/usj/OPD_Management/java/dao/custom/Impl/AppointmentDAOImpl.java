@@ -62,7 +62,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 appointmentID = details[0];
                 patient = details[1];
                 doctor = details[2];
@@ -144,7 +144,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 appointmentID = details[0];
                 patient = details[1];
                 doctor = details[2];
@@ -228,7 +228,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 appointmentID=details[0];
                 patient=details[1];
                 doctor=details[2];
@@ -279,7 +279,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
             if (last == null){
                 return 0;
             }else {
-                String[] details = last.split("#");
+                String[] details = last.split("#", -1);
                 appointmentId=details[0];
                 return Integer.parseInt(appointmentId.substring(1));
             }
@@ -310,7 +310,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 appointmentID=details[0];
                 patient=details[1];
                 doctor=details[2];
@@ -362,7 +362,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 appointmentID=details[0];
                 patient=details[1];
                 doctor=details[2];
@@ -405,7 +405,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 appointmentID = details[0];
                 patient = details[1];
                 doctor = details[2];
@@ -487,7 +487,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 date=details[4];
 
                 if (date.equals(todayDate)){
@@ -521,7 +521,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 appointmentID = details[0];
                 patient = details[1];
                 doctor = details[2];
@@ -597,7 +597,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
             while(scanner.hasNextLine()){
                 String line =scanner.nextLine();
-                String[] details = line.split("#");
+                String[] details = line.split("#", -1);
                 doctor=details[2];
                 currentStatus=details[7];
 
