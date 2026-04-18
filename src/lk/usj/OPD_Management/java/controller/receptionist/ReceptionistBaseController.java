@@ -128,7 +128,7 @@ public class ReceptionistBaseController implements Initializable {
         appointmentsHBox.getStyleClass().add("hover_border");
         patientHBox.getStyleClass().add("hover_border");
 
-        VBox pane = FXMLLoader.load(this.getClass().getResource("/lk/usj/OPD_Management/resources/view/patient/patient_treatment_view.fxml"));
+        Parent pane = FXMLLoader.load(this.getClass().getResource("/lk/usj/OPD_Management/resources/view/receptionist/receptionist_treatment_billing.fxml"));
         root.getChildren().setAll(pane);
         treatmentHBox.getStyleClass().removeAll("hover_border");
 

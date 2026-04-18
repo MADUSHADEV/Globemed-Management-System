@@ -42,11 +42,11 @@
                                 <ColumnConstraints hgrow="ALWAYS"/>
                             </columnConstraints>
                             <children>
-                                <Label text="Patient Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-                                <TextField fx:id="txtPatientId" promptText="Enter Patient Name" GridPane.columnIndex="1"
+                                <Label text="Patient NIC:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                                <TextField fx:id="txtPatientId" promptText="Enter Patient NIC" GridPane.columnIndex="1"
                                            GridPane.rowIndex="0"/>
                                 <Label text="Doctor User Name:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                                <TextField fx:id="txtDoctorId" editable="false" GridPane.columnIndex="1"
+                                <TextField fx:id="txtDoctorId" disable="true" editable="false" GridPane.columnIndex="1"
                                            GridPane.rowIndex="1"/>
                                 <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
                                 <TextArea fx:id="txtDescription" prefRowCount="3" promptText="Treatment description..."
@@ -89,7 +89,7 @@
                         <TableView fx:id="tblTreatments" prefHeight="300.0">
                             <columns>
                                 <TableColumn fx:id="colTreatmentId" prefWidth="120.0" text="Treatment ID"/>
-                                <TableColumn fx:id="colPatientId" prefWidth="100.0" text="Patient Name"/>
+                                <TableColumn fx:id="colPatientId" prefWidth="100.0" text="Patient NIC"/>
                                 <TableColumn fx:id="colDescription" prefWidth="200.0" text="Description"/>
                                 <TableColumn fx:id="colStatus" prefWidth="100.0" text="Status"/>
                                 <TableColumn fx:id="colCreatedDate" prefWidth="140.0" text="Created Date"/>

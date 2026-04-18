@@ -1,12 +1,12 @@
 package lk.usj.OPD_Management.java.service.custom;
 
-import lk.usj.OPD_Management.java.dao.SuperDAO;
 import lk.usj.OPD_Management.java.dto.TreatmentPlanDTO;
+import lk.usj.OPD_Management.java.service.SuperBO;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public interface TreatmentPlanBO extends SuperDAO {
+public interface TreatmentPlanBO extends SuperBO {
 
     // CRUD Operations
     boolean saveTreatmentPlan(TreatmentPlanDTO treatmentPlan) throws Exception;

@@ -225,10 +225,12 @@ public class TreatmentPlanBOImpl implements TreatmentPlanBO {
             throw new Exception("Can only add cost to completed treatments");
         }
 
-        // Use mediator to add cost
-        treatmentMediator.addTreatmentCost(treatmentId, cost);
+        // Apply changes
+        treatment.setCost(cost);
+        treatment.setStatus(TreatmentPlanDTO.TreatmentStatus.BILLED);
 
-        return true;
+        // Update database
+        return treatmentPlanDAO.update(treatment);
     }
 
     @Override

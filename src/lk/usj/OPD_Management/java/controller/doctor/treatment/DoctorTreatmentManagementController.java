@@ -30,6 +30,7 @@ public class DoctorTreatmentManagementController implements Initializable {
     @FXML private TableColumn<TreatmentPlanDTO,Double> colCost;
 
     @FXML private TextField txtPatientId;
+    @FXML private TextField txtDoctorId;
     @FXML private TextArea txtDescription;
     @FXML private TextArea txtMedicines;
     @FXML private TextArea txtProcedures;
@@ -55,6 +56,9 @@ public class DoctorTreatmentManagementController implements Initializable {
     public boolean prepare(String doctorId) {
         if (!ready) return false;
         this.doctorId = doctorId;
+        if (txtDoctorId != null) {
+            txtDoctorId.setText(doctorId);
+        }
         refreshTable();
         return true;
     }
