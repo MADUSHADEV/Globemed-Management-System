@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lk.usj.OPD_Management.java.controller.doctor.treatment.DoctorTreatmentManagementController">
+    <top>
+        <VBox spacing="10.0">
+            <children>
+                <Label text="Doctor - Treatment Management">
+                    <font>
+                        <Font name="System Bold" size="24.0"/>
+                    </font>
+                </Label>
+                <Separator/>
+            </children>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+            </padding>
+        </VBox>
+    </top>
+    <center>
+        <SplitPane dividerPositions="0.4">
+            <items>
+                <VBox spacing="15.0">
+                    <children>
+                        <Label text="Create New Treatment Plan">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Label>
+                        <GridPane hgap="10.0" vgap="15.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="NEVER" minWidth="100.0"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                            </columnConstraints>
+                            <children>
+                                <Label text="Patient Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                                <TextField fx:id="txtPatientId" promptText="Enter Patient Name" GridPane.columnIndex="1"
+                                           GridPane.rowIndex="0"/>
+                                <Label text="Doctor User Name:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                                <TextField fx:id="txtDoctorId" editable="false" GridPane.columnIndex="1"
+                                           GridPane.rowIndex="1"/>
+                                <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                                <TextArea fx:id="txtDescription" prefRowCount="3" promptText="Treatment description..."
+                                          GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                <Label text="Medicines:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                                <TextArea fx:id="txtMedicines" prefRowCount="3" promptText="Prescribed medicines..."
+                                          GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                                <Label text="Procedures:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                                <TextArea fx:id="txtProcedures" prefRowCount="3" promptText="Medical procedures..."
+                                          GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                                <Label text="Follow-ups:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                                <TextArea fx:id="txtFollowUps" prefRowCount="3" promptText="Follow-up instructions..."
+                                          GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                            </children>
+                        </GridPane>
+                        <HBox spacing="10.0">
+                            <children>
+                                <Button fx:id="btnCreateTreatment" onAction="#btnCreateTreatmentOnAction"
+                                        prefWidth="120.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"
+                                        text="Create Plan"  mnemonicParsing="false"/>
+                                <Button fx:id="btnCompleteTreatment" onAction="#btnCompleteTreatmentOnAction"
+                                        prefWidth="120.0" style="-fx-background-color: #2196F3; -fx-text-fill: white;"
+                                        text="Complete"  mnemonicParsing="false"/>
+                                <Button fx:id="btnRefresh" onAction="#btnRefreshOnAction" prefWidth="100.0"
+                                        style="-fx-background-color: #FF9800; -fx-text-fill: white;" text="Refresh"  mnemonicParsing="false"/>
+                            </children>
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="10.0" top="10.0"/>
+                    </padding>
+                </VBox>
+                <VBox spacing="15.0">
+                    <children>
+                        <Label text="My Treatment Plans">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Label>
+                        <TableView fx:id="tblTreatments" prefHeight="300.0">
+                            <columns>
+                                <TableColumn fx:id="colTreatmentId" prefWidth="120.0" text="Treatment ID"/>
+                                <TableColumn fx:id="colPatientId" prefWidth="100.0" text="Patient Name"/>
+                                <TableColumn fx:id="colDescription" prefWidth="200.0" text="Description"/>
+                                <TableColumn fx:id="colStatus" prefWidth="100.0" text="Status"/>
+                                <TableColumn fx:id="colCreatedDate" prefWidth="140.0" text="Created Date"/>
+                                <TableColumn fx:id="colCost" prefWidth="80.0" text="Cost"/>
+                            </columns>
+                        </TableView>
+                        <Separator/>
+                        <Label fx:id="lblSelectedTreatment" text="Selected Treatment Details">
+                            <font>
+                                <Font name="System Bold" size="14.0"/>
+                            </font>
+                        </Label>
+                        <TextArea fx:id="txtSelectedDetails" editable="false" prefRowCount="8" wrapText="true"/>
+                    </children>
+                    <padding>
+                        <Insets bottom="20.0" left="10.0" right="20.0" top="10.0"/>
+                    </padding>
+                </VBox>
+            </items>
+        </SplitPane>
+    </center>
+</BorderPane>
+

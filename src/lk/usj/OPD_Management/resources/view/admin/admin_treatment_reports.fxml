@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.usj.OPD_Management.java.controller.admin.treatment.AdminTreatmentReportController">
+    <top>
+        <VBox spacing="10.0">
+            <children>
+                <Label text="Admin - Treatment Reports  Analytics">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+                <Separator />
+            </children>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="15.0">
+            <children>
+                <HBox spacing="20.0">
+                    <children>
+                        <VBox spacing="10.0">
+                            <children>
+                                <Label text="Filter  Search">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                </Label>
+                                <GridPane hgap="10.0" vgap="10.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="NEVER" minWidth="80.0" />
+                                        <ColumnConstraints hgrow="ALWAYS" />
+                                        <ColumnConstraints hgrow="NEVER" minWidth="80.0" />
+                                        <ColumnConstraints hgrow="ALWAYS" />
+                                    </columnConstraints>
+                                    <children>
+                                        <Label text="Start Date:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                        <DatePicker fx:id="dpStartDate" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                        <Label text="End Date:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                        <DatePicker fx:id="dpEndDate" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                        <Label text="Status:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                        <ComboBox fx:id="cmbStatus" prefWidth="150.0" promptText="Select Status" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Label text="Doctor ID:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                        <TextField fx:id="txtDoctorId" promptText="Doctor ID" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                        <Label text="Patient ID:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                        <TextField fx:id="txtPatientId" promptText="Patient ID" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    </children>
+                                </GridPane>
+                                <HBox spacing="10.0">
+                                    <children>
+                                        <Button fx:id="btnSearch" onAction="#btnSearchOnAction" prefWidth="100.0" style="-fx-background-color: #2196F3; -fx-text-fill: white;" text="Search" />
+                                        <Button fx:id="btnClearFilter" onAction="#btnClearFilterOnAction" prefWidth="100.0" style="-fx-background-color: #FF9800; -fx-text-fill: white;" text="Clear" />
+                                        <Button fx:id="btnGenerateReport" onAction="#btnGenerateReportOnAction" prefWidth="120.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Generate Report" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                        <VBox spacing="10.0">
+                            <children>
+                                <Label text="Statistics">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                </Label>
+                                <GridPane hgap="15.0" vgap="10.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="NEVER" />
+                                        <ColumnConstraints hgrow="NEVER" />
+                                    </columnConstraints>
+                                    <children>
+                                        <Label text="Total Treatments:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                        <Label fx:id="lblTotalTreatments" style="-fx-font-weight: bold; -fx-text-fill: #2196F3;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                        <Label text="Total Revenue:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                        <Label fx:id="lblTotalRevenue" style="-fx-font-weight: bold; -fx-text-fill: #4CAF50;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Label text="Completed:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                        <Label fx:id="lblCompletedTreatments" style="-fx-font-weight: bold; -fx-text-fill: #FF9800;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <Label text="Pending:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                        <Label fx:id="lblPendingTreatments" style="-fx-font-weight: bold; -fx-text-fill: #F44336;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <Separator />
+                <SplitPane dividerPositions="0.7" orientation="VERTICAL">
+                    <items>
+                        <VBox spacing="10.0">
+                            <children>
+                                <Label text="Treatment Records">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TableView fx:id="tblTreatments" prefHeight="300.0">
+                                    <columns>
+                                        <TableColumn fx:id="colTreatmentId" prefWidth="120.0" text="Treatment ID" />
+                                        <TableColumn fx:id="colPatientId" prefWidth="100.0" text="Patient ID" />
+                                        <TableColumn fx:id="colDoctorId" prefWidth="100.0" text="Doctor ID" />
+                                        <TableColumn fx:id="colDescription" prefWidth="200.0" text="Description" />
+                                        <TableColumn fx:id="colStatus" prefWidth="100.0" text="Status" />
+                                        <TableColumn fx:id="colCost" prefWidth="80.0" text="Cost" />
+                                        <TableColumn fx:id="colCreatedDate" prefWidth="140.0" text="Created Date" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </VBox>
+                        <VBox spacing="10.0">
+                            <children>
+                                <Label text="Report Summary">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TextArea fx:id="txtReportSummary" editable="false" prefRowCount="8" wrapText="true" />
+                            </children>
+                        </VBox>
+                    </items>
+                </SplitPane>
+            </children>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+            </padding>
+        </VBox>
+    </center>
+</BorderPane>

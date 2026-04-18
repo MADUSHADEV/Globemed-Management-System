@@ -17,7 +17,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lk.usj.OPD_Management.java.common.Common;
-import lk.usj.OPD_Management.java.controller.admin.user.AdminUserEditDeletePatientController;
 import lk.usj.OPD_Management.java.dto.PatientDTO;
 import lk.usj.OPD_Management.java.service.custom.PatientBO;
 import lk.usj.OPD_Management.java.service.custom.impl.PatientBOImpl;

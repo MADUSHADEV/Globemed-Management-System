@@ -16,9 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lk.usj.OPD_Management.java.common.Common;
-import lk.usj.OPD_Management.java.controller.admin.complaint.AdminComplaintEditDeleteController;
 import lk.usj.OPD_Management.java.dto.AppointmentDTO;
-import lk.usj.OPD_Management.java.dto.ComplaintDTO;
 import lk.usj.OPD_Management.java.service.custom.AppointmentBO;
 import lk.usj.OPD_Management.java.service.custom.impl.AppointmentBOImpl;
 

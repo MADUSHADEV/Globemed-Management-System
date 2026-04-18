@@ -39,6 +39,9 @@ public class PatientBaseController implements Initializable {
     private VBox profileVBox;
 
     @FXML
+    private HBox treatmentHBox; // Added for treatment management
+
+    @FXML
     private Text nameTxt;
 
     @FXML
@@ -120,6 +123,28 @@ public class PatientBaseController implements Initializable {
         complainsHBox.setBackground(background2);
     }
 
+    @FXML
+    void treatmentHBox_MouseEvent(MouseEvent event) throws Exception{
+        dashboardHBox.getStyleClass().add("hover_border");
+        appointmentHBox.getStyleClass().add("hover_border");
+        complainsHBox.getStyleClass().add("hover_border");
+        treatmentHBox.getStyleClass().add("hover_border");
+
+        VBox pane= FXMLLoader.load(this.getClass().getResource("/lk/usj/OPD_Management/resources/view/patient/patient_treatment_view.fxml"));
+        root.getChildren().setAll(pane);
+        treatmentHBox.getStyleClass().removeAll("hover_border");
+
+        BackgroundFill background_fill = new BackgroundFill(Color.rgb(80, 157, 255), CornerRadii.EMPTY, Insets.EMPTY);
+        Background background = new Background(background_fill);
+        treatmentHBox.setBackground(background);
+
+        BackgroundFill background_fill2 = new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY);
+        Background background2 = new Background(background_fill2);
+        dashboardHBox.setBackground(background2);
+        appointmentHBox.setBackground(background2);
+        complainsHBox.setBackground(background2);
+    }
+
 
     @FXML
     void logoutBtn_ActionEvent(ActionEvent event) {
@@ -157,6 +182,7 @@ public class PatientBaseController implements Initializable {
         dashboardHBox.getStyleClass().add("hover_border");
         appointmentHBox.getStyleClass().add("hover_border");
         complainsHBox.getStyleClass().add("hover_border");
+        treatmentHBox.getStyleClass().add("hover_border");
 
         BackgroundFill background_fill = new BackgroundFill(Color.rgb(80, 157, 255), CornerRadii.EMPTY, Insets.EMPTY);
         Background background = new Background(background_fill);

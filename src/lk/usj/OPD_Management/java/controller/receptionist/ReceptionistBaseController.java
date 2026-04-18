@@ -42,6 +42,9 @@ public class ReceptionistBaseController implements Initializable {
     private Text profileNameTxt;
 
     @FXML
+    private HBox treatmentHBox; // Added for treatment management
+
+    @FXML
     private HBox dashboardHBox;
 
     @FXML
@@ -113,6 +116,29 @@ public class ReceptionistBaseController implements Initializable {
         postalHBox.setBackground(background2);
         dashboardHBox.setBackground(background2);
         appointmentsHBox.setBackground(background2);
+    }
+
+    @FXML
+    void treatmentHBox_MouseEvent(MouseEvent event) throws Exception {
+        dashboardHBox.getStyleClass().add("hover_border");
+        treatmentHBox.getStyleClass().add("hover_border");
+        visitorsHBox.getStyleClass().add("hover_border");
+        postalHBox.getStyleClass().add("hover_border");
+        complaintsHBox.getStyleClass().add("hover_border");
+        appointmentsHBox.getStyleClass().add("hover_border");
+        patientHBox.getStyleClass().add("hover_border");
+
+        VBox pane = FXMLLoader.load(this.getClass().getResource("/lk/usj/OPD_Management/resources/view/patient/patient_treatment_view.fxml"));
+        root.getChildren().setAll(pane);
+        treatmentHBox.getStyleClass().removeAll("hover_border");
+
+        BackgroundFill background_fill = new BackgroundFill(Color.rgb(80, 157, 255), CornerRadii.EMPTY, Insets.EMPTY);
+        Background background = new Background(background_fill);
+        treatmentHBox.setBackground(background);
+
+        BackgroundFill background_fill2 = new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY);
+        Background background2 = new Background(background_fill2);
+        dashboardHBox.setBackground(background2);
     }
 
     @FXML
@@ -262,6 +288,9 @@ public class ReceptionistBaseController implements Initializable {
         complaintsHBox.getStyleClass().add("hover_border");
         appointmentsHBox.getStyleClass().add("hover_border");
         visitorsHBox.getStyleClass().add("hover_border");
+        if (treatmentHBox != null) { // guard
+            treatmentHBox.getStyleClass().add("hover_border");
+        }
 
 
         BackgroundFill background_fill = new BackgroundFill(Color.rgb(80, 157, 255), CornerRadii.EMPTY, Insets.EMPTY);

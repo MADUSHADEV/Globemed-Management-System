@@ -17,7 +17,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lk.usj.OPD_Management.java.common.Common;
-import lk.usj.OPD_Management.java.controller.receptionist.appointment.ReceptionistAppointmentEditAppointmentController;
 import lk.usj.OPD_Management.java.dto.AppointmentDTO;
 import lk.usj.OPD_Management.java.service.custom.AppointmentBO;
 import lk.usj.OPD_Management.java.service.custom.impl.AppointmentBOImpl;

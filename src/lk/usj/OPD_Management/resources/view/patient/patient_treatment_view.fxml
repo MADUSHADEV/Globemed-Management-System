@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.usj.OPD_Management.java.controller.patient.treatment.PatientTreatmentViewController">
+    <top>
+        <VBox spacing="10.0">
+            <children>
+                <Label text="Patient - My Treatment Plans">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+                <HBox alignment="CENTER_LEFT" spacing="15.0">
+                    <children>
+                        <Label text="Patient ID:" />
+                        <TextField fx:id="txtCurrentPatientId" editable="false" prefWidth="150.0" style="-fx-background-color: #f0f0f0;" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="btnRefresh" onAction="#btnRefreshOnAction" style="-fx-background-color: #FF9800; -fx-text-fill: white;" text="Refresh" />
+                        <Button fx:id="btnViewHistory" onAction="#btnViewHistoryOnAction" style="-fx-background-color: #2196F3; -fx-text-fill: white;" text="View History" />
+                    </children>
+                </HBox>
+                <Separator />
+            </children>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+        </VBox>
+    </top>
+    <center>
+        <TabPane>
+            <tabs>
+                <Tab fx:id="tabCurrentTreatments" closable="false" text="Current Treatments">
+                    <content>
+                        <SplitPane dividerPositions="0.6" orientation="VERTICAL">
+                            <items>
+                                <VBox spacing="10.0">
+                                    <children>
+                                        <Label text="My Active Treatment Plans">
+                                            <font>
+                                                <Font name="System Bold" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <TableView fx:id="tblMyTreatments" prefHeight="250.0">
+                                            <columns>
+                                                <TableColumn fx:id="colTreatmentId" prefWidth="120.0" text="Treatment ID" />
+                                                <TableColumn fx:id="colDoctorId" prefWidth="100.0" text="Doctor" />
+                                                <TableColumn fx:id="colDescription" prefWidth="250.0" text="Description" />
+                                                <TableColumn fx:id="colStatus" prefWidth="100.0" text="Status" />
+                                                <TableColumn fx:id="colCreatedDate" prefWidth="140.0" text="Created Date" />
+                                                <TableColumn fx:id="colCost" prefWidth="80.0" text="Cost" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                    </padding>
+                                </VBox>
+                                <VBox spacing="10.0">
+                                    <children>
+                                        <Label fx:id="lblSelectedTreatment" text="Select a treatment to view details">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <TextArea fx:id="txtTreatmentDetails" editable="false" prefRowCount="10" style="-fx-font-family: 'Courier New';" wrapText="true" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                    </padding>
+                                </VBox>
+                            </items>
+                        </SplitPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabCompletedTreatments" closable="false" text="Treatment History">
+                    <content>
+                        <SplitPane dividerPositions="0.6" orientation="VERTICAL">
+                            <items>
+                                <VBox spacing="10.0">
+                                    <children>
+                                        <Label text="My Completed Treatments">
+                                            <font>
+                                                <Font name="System Bold" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <TableView fx:id="tblCompletedTreatments" prefHeight="250.0">
+                                            <columns>
+                                                <TableColumn fx:id="colCompletedTreatmentId" prefWidth="120.0" text="Treatment ID" />
+                                                <TableColumn fx:id="colCompletedDoctorId" prefWidth="100.0" text="Doctor" />
+                                                <TableColumn fx:id="colCompletedDescription" prefWidth="250.0" text="Description" />
+                                                <TableColumn fx:id="colCompletedDate" prefWidth="140.0" text="Completed Date" />
+                                                <TableColumn fx:id="colCompletedCost" prefWidth="80.0" text="Cost" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                    </padding>
+                                </VBox>
+                                <VBox spacing="10.0">
+                                    <children>
+                                        <Label text="Treatment History Details">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <TextArea editable="false" prefRowCount="10" style="-fx-font-family: 'Courier New';" wrapText="true" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                    </padding>
+                                </VBox>
+                            </items>
+                        </SplitPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>

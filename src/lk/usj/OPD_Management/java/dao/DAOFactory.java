@@ -16,6 +16,10 @@ public class DAOFactory {
         return dAOFactory;
     }
 
+    public static DAOFactory getDAOFactory() {
+        return getInstance();
+    }
+
     public <T extends SuperDAO> T getDAO(DAOFactory.DAOTypes daoType) {
         switch (daoType) {
             case ADMIN:
@@ -30,6 +34,8 @@ public class DAOFactory {
                 return (T) new VisitorDAOImpl();
             case POSTAL:
                 return (T) new PostalDAOImpl();
+            case TREATMENT_PLAN:
+                return (T) new TreatmentPlanDAOImpl();
             case APPOINTMENT:
                 return (T) new AppointmentDAOImpl();
             case LOGIN:
@@ -50,7 +56,8 @@ public class DAOFactory {
         POSTAL,
         APPOINTMENT,
         LOGIN,
-        COMPLAINT;
+        COMPLAINT,
+        TREATMENT_PLAN;
 
         private DAOTypes() {
         }

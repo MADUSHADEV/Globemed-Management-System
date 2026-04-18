@@ -126,8 +126,23 @@ public class PatientDashboardSaveComplaintController implements Initializable {
                 complaintType = complaintTypeComboBox.getSelectionModel().getSelectedItem();
             }
 
-            File newFile = new File("AttachmentDocumentsStorage\\complaint"+complaintByTextField.getText()+String.valueOf(currentDate.getDay())+String.valueOf(currentDate.getHours())+String.valueOf(currentDate.getSeconds())+".txt");
-            Files.copy(Path.of(selectedFilePath),newFile.toPath());
+            File newFile = null;
+            String newFilePath = "";
+            if (selectedFilePath != null && !selectedFilePath.isEmpty()) {
+                newFile = new File("AttachmentDocumentsStorage\\complaint"+complaintByTextField.getText()+String.valueOf(currentDate.getDay())+String.valueOf(currentDate.getHours())+String.valueOf(currentDate.getSeconds())+".txt");
+                Files.copy(Path.of(selectedFilePath),newFile.toPath());
+                newFilePath = newFile.getPath();
+            }
+
+            String descriptionText = descriptionTextField.getText();
+            if (descriptionText != null) {
+                descriptionText = descriptionText.replace("\n", " ").replace("\r", "");
+            }
+
+            String noteText = noteTextField.getText();
+            if (noteText != null) {
+                noteText = noteText.replace("\n", " ").replace("\r", "");
+            }
 
             ComplaintDTO complaintDTO= new ComplaintDTO(
                     complainId,
@@ -135,10 +150,10 @@ public class PatientDashboardSaveComplaintController implements Initializable {
                     complaintByTextField.getText(),
                     phoneNoTextField.getText(),
                     currentDate,
-                    descriptionTextField.getText(),
+                    descriptionText,
                     actionTaken,
-                    noteTextField.getText(),
-                    newFile.getPath(),
+                    noteText,
+                    newFilePath,
                     status
             );
 

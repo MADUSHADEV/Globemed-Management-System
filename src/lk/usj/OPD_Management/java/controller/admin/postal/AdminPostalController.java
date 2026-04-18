@@ -17,7 +17,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import lk.usj.OPD_Management.java.common.Common;
-import lk.usj.OPD_Management.java.controller.receptionist.postal.ReceptionistPostalEditReceivedPostalController;
 import lk.usj.OPD_Management.java.dto.PostalDTO;
 import lk.usj.OPD_Management.java.service.custom.PostalBO;
 import lk.usj.OPD_Management.java.service.custom.impl.PostalBOImpl;
